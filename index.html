@@ -1,0 +1,345 @@
+<title>Áslaug Arna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  /* Layout: one quiet column on white. Navy ink, black for the name, gold only as hairlines and small marks. */
+  :root {
+    --paper: #ffffff;
+    --ink: #13213a;
+    --black: #111318;
+    --ink-soft: #4f5a72;
+    --rule: #e3e6ec;
+    --navy: #1f3a6e;
+    --gold: #b8975a;
+    --gold-soft: #e7dcc3;
+    --card: #f6f7f9;
+    --display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0e1729; --ink: #ece6d8; --black: #f6f1e6; --ink-soft: #aeb0b8; --rule: #25324c;
+      --navy: #d6c7a0; --gold: #cfb27a; --gold-soft: #3a3a2e; --card: #142039;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0e1729; --ink: #ece6d8; --black: #f6f1e6; --ink-soft: #aeb0b8; --rule: #25324c;
+    --navy: #d6c7a0; --gold: #cfb27a; --gold-soft: #3a3a2e; --card: #142039;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.08rem;
+    line-height: 1.65;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0 3.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  @media (prefers-reduced-motion: no-preference) {
+    a, button, img { transition: color .2s ease, border-color .2s ease, background-color .2s ease, opacity .3s ease; }
+  }
+
+  /* language switch */
+  [data-lang="en"] .is, [data-lang="is"] .en { display: none; }
+
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--rule);
+  }
+  header.top .brand { font-family: var(--display); font-size: 1.35rem; font-weight: 500; letter-spacing: 0.02em; color: var(--black); }
+  .lang { display: flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+  .lang button {
+    background: none; border: 0; padding: 0.3rem 0.8rem; cursor: pointer; border-radius: 999px;
+    font: 600 0.72rem var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  /* hero */
+  .hero {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: center;
+    padding: 4rem 0 4rem; border-bottom: 1px solid var(--rule);
+  }
+  .frame { position: relative; }
+  .frame::before {
+    content: ""; position: absolute; inset: 0; transform: translate(14px, 14px);
+    border: 1px solid var(--gold); pointer-events: none;
+  }
+  .hero img { position: relative; width: 100%; max-width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; background: var(--card); }
+  .hero h1 {
+    font-family: var(--display); font-weight: 500; font-size: clamp(2.7rem, 5.6vw, 4.6rem);
+    line-height: 1; margin: 0 0 1rem; text-wrap: balance; color: var(--black); letter-spacing: -0.01em;
+  }
+  .hero .nick { margin: 0 0 1.4rem; font-family: var(--display); font-style: italic; font-size: 1.4rem; color: var(--ink-soft); }
+  .hero .nick::after, .hero .roles.is::before { content: ""; display: block; width: 2.5rem; height: 1px; background: var(--gold); margin-top: 1.2rem; }
+  .hero .roles.is::before { margin: 0 0 1.2rem; }
+  .hero .roles { list-style: none; padding: 0; margin: 0; font-size: 1rem; line-height: 1.75; color: var(--ink-soft); max-width: 36ch; }
+  .hero .roles li:first-child { color: var(--ink); font-weight: 600; margin-bottom: 0.3rem; }
+  .hero .roles a { text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .hero .roles a:hover { color: var(--navy); }
+
+  section { padding: 3.4rem 0; border-bottom: 1px solid var(--rule); }
+  section h2 {
+    font: 600 0.74rem var(--body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+    margin: 0 0 1.4rem; display: flex; align-items: center; gap: 0.8rem;
+  }
+  section h2::after { content: ""; flex: 0 0 2rem; height: 1px; background: var(--gold); }
+
+  /* now */
+  .now { display: grid; grid-template-columns: 1fr; gap: 1.6rem; }
+  .now blockquote {
+    position: relative; margin: 0; padding-left: 2.2rem;
+    font-family: var(--display); font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.32; max-width: 36em; text-wrap: pretty; color: var(--black);
+  }
+  .now blockquote::before {
+    content: "\201C"; position: absolute; left: -0.1rem; top: -0.9rem;
+    font-family: var(--display); font-size: 4.6rem; line-height: 1; color: var(--gold);
+  }
+  .now .cta { margin: 0; padding-left: 2.2rem; }
+  .now .cta a { text-decoration: none; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+  .now .cta a::after { content: " \2192"; color: var(--gold); }
+  .now .cta a:hover { color: var(--navy); }
+
+  /* contact */
+  .contact p, .follow p { margin: 0 0 0.8rem; color: var(--ink-soft); }
+  .email { display: block; font-family: var(--display); font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.2; margin-bottom: 0; }
+  .contact p.email { margin-bottom: 0; }
+  .email a { text-decoration: none; color: var(--black); border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+  .email a:hover { color: var(--navy); }
+  .social { display: flex; flex-wrap: wrap; gap: 0.6rem 0; padding: 0; margin: 0; list-style: none; }
+  .social li { display: flex; align-items: center; }
+  .social li + li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); margin: 0 1.1rem; }
+  .social a { text-decoration: none; font-weight: 600; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid transparent; }
+  .social a:hover { border-bottom-color: var(--gold); color: var(--navy); }
+
+  /* education */
+  .edu { list-style: none; padding: 0; margin: 0; font-family: var(--display); font-size: 1.45rem; line-height: 1.5; color: var(--black); }
+
+  /* course */
+  .course p { max-width: 56ch; margin: 0 0 1.6rem; }
+  .course .cta { margin: 0; }
+  .course .cta a {
+    display: inline-block; text-decoration: none; font: 600 0.8rem var(--body); letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--ink); color: var(--paper); padding: 0.85rem 1.4rem; border: 1px solid var(--ink);
+  }
+  .course .cta a:hover { background: var(--paper); color: var(--ink); border-color: var(--gold); }
+
+  /* press photos */
+  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  figure { margin: 0; }
+  figure img { width: 100%; max-width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; background: var(--card); }
+  figure:hover img { opacity: 0.92; }
+  figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-top: 0.8rem; font-size: 0.88rem; color: var(--ink-soft); border-top: 1px solid var(--rule); margin-top: 0.8rem; }
+  figcaption a { text-decoration: none; color: var(--ink); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; border-bottom: 1px solid var(--gold); white-space: nowrap; }
+  figcaption a:hover { color: var(--navy); }
+
+  /* bio */
+  .bio { margin-top: 2.6rem; padding-top: 2rem; border-top: 1px solid var(--rule); max-width: 66ch; }
+  .bio h3 { font: 600 0.74rem var(--body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.9rem; }
+  .bio p { margin: 0 0 1.2rem; }
+  .copy {
+    font: 600 0.78rem var(--body); letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+    background: none; border: 1px solid var(--ink); color: var(--ink); padding: 0.6rem 1.1rem;
+  }
+  .copy:hover { border-color: var(--gold); color: var(--navy); }
+
+  footer { padding-top: 1.8rem; font-size: 0.82rem; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; letter-spacing: 0.04em; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 2.4rem; padding: 2.2rem 0 2.6rem; }
+    .frame::before { transform: translate(10px, 10px); }
+    section { padding: 2.5rem 0; }
+    .now blockquote, .now .cta { padding-left: 1.6rem; }
+    .now blockquote::before { font-size: 3.6rem; top: -0.6rem; left: -0.2rem; }
+    body { font-size: 1.03rem; }
+  }
+</style>
+
+<div class="wrap" id="page" data-lang="en">
+
+  <header class="top">
+    <span class="brand">Áslaug Arna</span>
+    <nav class="lang" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true" data-set="en">EN</button>
+      <button type="button" id="lang-is" aria-pressed="false" data-set="is">ÍS</button>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="frame"><img src="press/aslaug-arna-1.jpg" alt="Áslaug Arna Sigurbjörnsdóttir"></div>
+    <div>
+      <h1>Áslaug Arna<br>Sigurbjörnsdóttir</h1>
+      <p class="nick en">You can call me Arna.</p>
+      <ul class="roles en">
+        <li><a href="https://fenris.com/news/2026/former-icelandic-minister-aslaug-arna-sigurbjoernsdottir-joins-fenris-creations-to-lead-new-ai-partnerships" target="_blank" rel="noopener">Leading EVE AI Lab at Fenris Creations</a></li>
+        <li>Senior Director, AI Partnerships</li>
+        <li>Fellow, Global Leadership Center, Atlantic Council</li>
+        <li>Former Minister of Justice, Iceland</li>
+        <li>Former Minister of Higher Education, Science and Innovation, Iceland</li>
+        <li>Former Member of Parliament, Iceland</li>
+      </ul>
+      <ul class="roles is">
+        <li><a href="https://fenris.com/news/2026/former-icelandic-minister-aslaug-arna-sigurbjoernsdottir-joins-fenris-creations-to-lead-new-ai-partnerships" target="_blank" rel="noopener">Leiði EVE AI Lab hjá Fenris Creations</a></li>
+        <li>Senior Director, AI Partnerships</li>
+        <li>Fellow hjá Global Leadership Center, Atlantic Council</li>
+        <li>Fyrrverandi dómsmálaráðherra</li>
+        <li>Fyrrverandi háskóla-, iðnaðar- og nýsköpunarráðherra</li>
+        <li>Fyrrverandi alþingismaður</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <section class="now">
+    <blockquote class="en">We put AI agents into a world that has run for more than twenty years with real people, real economies and real consequences, and we watch what they do. A flight simulator tests a pilot before anyone boards. We want the same for AI: evidence of how it behaves before it reaches the real world, and a clearer idea of how we coexist.</blockquote>
+    <blockquote class="is">Við setjum gervigreind inn í heim sem hefur gengið í rúm tuttugu ár með alvöru fólki, alvöru hagkerfi og raunverulegum afleiðingum, og fylgjumst með því hvað hún gerir. Flughermir prófar flugmann áður en nokkur fer um borð. Við viljum það sama fyrir gervigreindina: gögn um hegðun hennar áður en hún fer út í raunheiminn, og skýrari mynd af því hvernig við lifum með henni.</blockquote>
+    <p class="cta"><a href="https://lab.eve.com" target="_blank" rel="noopener">lab.eve.com</a></p>
+  </section>
+
+  <section class="contact">
+    <p class="en">For speaking engagements or other enquiries</p>
+    <p class="is">Fyrir erindi og aðrar fyrirspurnir</p>
+    <p class="email"><a href="mailto:a@aslaugarna.com" id="email-link">a@aslaugarna.com</a></p>
+  </section>
+
+  <section class="follow">
+    <p class="en">Follow me here for more.</p>
+    <p class="is">Fylgdu mér hér.</p>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/aslaugarna" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/aslaugarna" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/aslaugarna" target="_blank" rel="noopener">X</a></li>
+      <li><a href="https://aslaugarna.substack.com" target="_blank" rel="noopener">Substack</a></li>
+      <li><a href="https://www.facebook.com/aslaugarna" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://www.tiktok.com/@aslaugarna" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+  </section>
+
+  <section class="education">
+    <h2 class="en">Education</h2>
+    <h2 class="is">Menntun</h2>
+    <ul class="edu">
+      <li><span class="en">MPA, Global Leadership, Columbia University, New York</span><span class="is">MPA í alþjóðlegri forystu, Columbia-háskóli, New York</span></li>
+      <li><span class="en">Mag. jur. and BA in Law, University of Iceland, Reykjavík</span><span class="is">Mag. jur. og BA í lögfræði, Háskóli Íslands, Reykjavík</span></li>
+    </ul>
+  </section>
+
+  <section class="course">
+    <h2 class="en">The Compass</h2>
+    <h2 class="is">Áttavitinn</h2>
+    <p class="en">I run a course on setting a clear direction for the different roles in your life, on goals, priorities and finding balance. Join the waitlist and I will let you know about the next dates.</p>
+    <p class="is">Ég hef haldið námskeið um að setja sér skýra sýn fyrir ólík hlutverk í lífinu, markmiðasetningu, forgangsröðun og að ná jafnvægi. Skráðu þig á biðlista og ég leyfi þér að fylgjast með næstu námskeiðum.</p>
+    <p class="cta"><a href="GOOGLE_FORM_URL" target="_blank" rel="noopener"><span class="en">Sign me up</span><span class="is">Skrá mig</span></a></p>
+  </section>
+
+  <section class="press">
+    <h2 class="en">Press photos</h2>
+    <h2 class="is">Myndir fyrir kynningarefni</h2>
+    <div class="photos">
+      <figure>
+        <img src="press/aslaug-arna-2.jpg" alt="Áslaug Arna, portrait, indoors">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Karitas Guðjónsdóttir</span>
+          <a href="press/aslaug-arna-2.jpg" download="aslaug-arna-2.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="press/aslaug-arna-1.jpg" alt="Áslaug Arna, outdoors, arms crossed">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Karitas Guðjónsdóttir</span>
+          <a href="press/aslaug-arna-1.jpg" download="aslaug-arna-1.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="press/aslaug-arna-4.jpg" alt="Áslaug Arna seated in a white suit by arched windows">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Íris Dögg Einarsdóttir</span>
+          <a href="press/aslaug-arna-4.jpg" download="aslaug-arna-4.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="press/aslaug-arna-5.jpg" alt="Áslaug Arna standing by arched windows">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Íris Dögg Einarsdóttir</span>
+          <a href="press/aslaug-arna-5.jpg" download="aslaug-arna-5.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="press/aslaug-arna-6.jpg" alt="Áslaug Arna outdoors in a patterned shirt, close portrait">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Karitas Guðjónsdóttir</span>
+          <a href="press/aslaug-arna-6.jpg" download="aslaug-arna-6.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="press/aslaug-arna-7.jpg" alt="Áslaug Arna outdoors in a patterned shirt">
+        <figcaption>
+          <span><span class="en">Photo:</span><span class="is">Ljósmynd:</span> Karitas Guðjónsdóttir</span>
+          <a href="press/aslaug-arna-7.jpg" download="aslaug-arna-7.jpg"><span class="en">Download</span><span class="is">Sækja</span></a>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="bio">
+      <h3 class="en">Short bio</h3>
+      <h3 class="is">Stutt kynning</h3>
+      <p class="en" id="bio-en">Áslaug Arna Sigurbjörnsdóttir is Senior Director of AI Partnerships at Fenris Creations, where she leads EVE AI Lab, and a Fellow at the Atlantic Council's Global Leadership Center. She served as Iceland's Minister of Justice and Minister of Higher Education, Science and Innovation, and was a member of parliament from 2016 to 2026. She holds an MPA from Columbia University and law degrees from the University of Iceland. She lives in London.</p>
+      <p class="is" id="bio-is">Áslaug Arna Sigurbjörnsdóttir er framkvæmdastjóri gervigreindarverkefnis Fenris (áður CCP Games), þar sem hún leiðir EVE AI Lab, og Fellow hjá Global Leadership Center Atlantic Council. Hún var dómsmálaráðherra og háskóla-, iðnaðar- og nýsköpunarráðherra og sat á Alþingi 2016 til 2026. Hún er með MPA-gráðu frá Columbia-háskóla og lögfræðipróf frá Háskóla Íslands. Hún býr í London.</p>
+      <button type="button" class="copy" id="copy-bio"><span class="en">Copy bio</span><span class="is">Afrita texta</span></button>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Áslaug Arna Sigurbjörnsdóttir</span>
+    <span>aslaugarna.com</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var page = document.getElementById('page');
+    var buttons = document.querySelectorAll('.lang button');
+    function setLang(l) {
+      page.setAttribute('data-lang', l);
+      document.documentElement.lang = l;
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved === 'is' || saved === 'en') setLang(saved);
+
+    else if ((navigator.language || '').toLowerCase().indexOf('is') === 0) setLang('is');
+
+    var copyBtn = document.getElementById('copy-bio');
+    copyBtn.addEventListener('click', function () {
+      var lang = page.getAttribute('data-lang');
+      var el = document.getElementById('bio-' + lang);
+      var text = el.textContent;
+      var en = copyBtn.querySelector('.en'), is = copyBtn.querySelector('.is');
+      function done() {
+        en.textContent = 'Copied'; is.textContent = 'Afritað';
+        setTimeout(function () { en.textContent = 'Copy bio'; is.textContent = 'Afrita texta'; }, 1600);
+      }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    });
+
+
+
+  })();
+</script>
